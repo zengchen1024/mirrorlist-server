@@ -51,7 +51,9 @@ do
 
             log "check checksum, old=$checksum, new=$v"
 
-            if [ "$v" != "$checksum" ]; then
+            if [ -n "$v" -a "$v" != "$checksum" ]; then
+                log "save new checksum"
+
                 checksum=v
                 break
             fi
